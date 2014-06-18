@@ -59,3 +59,12 @@ set smartcase
 
 " highlights searching
 set gdefault
+
+" keep a minimum of 3 lines of context around current line
+set scrolloff=3
+
+"no menu or scrollbars
+set guioptions=
+
+"show commands as they are typed
+set showcmd
