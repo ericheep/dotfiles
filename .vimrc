@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let vundle manage itself
+Plugin 'sophacles/vim-processing'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'klen/python-mode'
 Plugin 'wilsaj/chuck.vim'
