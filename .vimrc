@@ -9,10 +9,8 @@ call vundle#begin()
 
 " Let vundle manage itself
 Plugin 'gmarik/Vundle.vim'
-" Plugin 'myusuf3/numbers.vim'
 Plugin 'klen/python-mode'
 Plugin 'wilsaj/chuck.vim'
-" Plugin 'ivanov/vim-ipython'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 
