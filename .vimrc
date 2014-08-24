@@ -8,34 +8,41 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let vundle manage itself
+Plugin 'sophacles/vim-processing'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'klen/python-mode'
 Plugin 'wilsaj/chuck.vim'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 filetype plugin indent on
 
 syntax on
-
 set background=dark
-colorscheme gruvbox
+colorscheme xoria256
+
+" turn off numbering
+set nu!
+
+" show commands as they are typed
+set showcmd
+
+" keep of mininum of 3 lines of context around current line
+set scrolloff=3
+
+"no menu or scrollbars
+set guioptions=
+
+" turn off the beep
+set visualbell
+
+" we'll do it live!
+set noswapfile
 
 " backspace through everything
 set backspace=eol,indent,start
-
-" turns off preview window for auto completion
-autocmd FileType python setlocal completeopt-=preview
-
-" turns off autocompletion
-let g:pymode_rope = 0
-
-" turns off caps key in normal mode
-autocmd InsertLeave * set iminsert=0
-
-" autoremove unused whitespaces
-let g:pymode_utils_whitespaces = 1
 
 " use 4-spaces for taba and autoindent
 set autoindent
@@ -44,25 +51,33 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-" turn off numbering
-set nu!
-
-" don't beep
-set visualbell
-
 " allows case insensitive searching
-" unless one or more characters are uppercase
 set ignorecase
 set smartcase
 
 " highlights searching
 set gdefault
+set incsearch
+set showmatch
+set hlsearch
 
-" keep a minimum of 3 lines of context around current line
-set scrolloff=3
+" turn off default pymode options
+let g:pymode_options = 0
 
-"no menu or scrollbars
-set guioptions=
+" set to python3 mode
+let g:pymode_python = 'python3'
 
-"show commands as they are typed
-set showcmd
+" turn off auto complete
+let g:pymode_rope_completion = 0 
+
+" ignores an annoying PEP8 rule
+let g:pymode_lint_ignore = "E265"
+
+" autoremove unused whitespaces
+let g:pymode_utils_whitespaces = 1
+
+" set map leader
+let mapleader = ","
+
+" zen mode mapping to ',z'
+nnoremap <leader>z :Goyo<CR>
