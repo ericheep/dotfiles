@@ -83,4 +83,4 @@ let mapleader = ","
 nnoremap <leader>z :Goyo<CR>
 
 " processing mapping to ',m'
-nnoremap <leader> :make<CR>
+nnoremap <leader>m :make<CR>
