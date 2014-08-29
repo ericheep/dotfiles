@@ -81,3 +81,6 @@ let mapleader = ","
 
 " zen mode mapping to ',z'
 nnoremap <leader>z :Goyo<CR>
+
+" processing mapping to ',m'
+nnoremap <leader>m :make<CR>
