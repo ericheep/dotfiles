@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
+Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
 Bundle "sudar/vim-arduino-syntax"
@@ -79,8 +80,15 @@ let g:pymode_utils_whitespaces = 1
 " set map leader
 let mapleader = ","
 
-" zen mode mapping to ',z'
+let g:sclangPipeApp = "~/.vim/bundle/scvim/bin/start_pipe"
+let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
+
+" zen mode mapping
 nnoremap <leader>z :Goyo<CR>
 
-" processing mapping to ',m'
-nnoremap <leader>m :make<CR>
+" processing mapping
+autocmd FileType processing nnoremap <leader>r :make<CR>
+
+" supercollider mapping
+autocmd FileType supercollider nnoremap <leader>b :SClangStart<CR>
+autocmd FileType supercollider nnoremap <leader>k :SClangKill<CR>
