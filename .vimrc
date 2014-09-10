@@ -9,6 +9,7 @@ call vundle#begin()
 
 " Let vundle manage itself
 Plugin 'gmarik/Vundle.vim'
+Plugin 'jplaut/vim-arduino-ino'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
 Plugin 'sbl/scvim'
@@ -23,7 +24,7 @@ filetype plugin indent on
 
 syntax on
 set background=dark
-colorscheme xoria256
+colorscheme gruvbox 
 
 " turn off numbering
 set nu!
@@ -83,6 +84,9 @@ let mapleader = ","
 
 let g:sclangPipeApp = "~/.vim/bundle/scvim/bin/start_pipe"
 let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
+
+" arduino stuff
+let g:vim_arduino_auto_open_serial = 1
 
 " zen mode mapping
 nnoremap <leader>z :Goyo<CR>
