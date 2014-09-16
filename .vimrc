@@ -75,6 +75,7 @@ let g:pymode_rope_completion = 0
 
 " ignores an annoying PEP8 rule
 let g:pymode_lint_ignore = "E265"
+let g:pymode_lint_ignore = "E231"
 
 " autoremove unused whitespaces
 let g:pymode_utils_whitespaces = 1
