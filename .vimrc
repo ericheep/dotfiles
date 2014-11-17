@@ -67,15 +67,13 @@ set hlsearch
 " turn off default pymode options
 let g:pymode_options = 0
 
-" set to python3 mode
-let g:pymode_python = 'python3'
-
 " turn off auto complete
 let g:pymode_rope_completion = 0 
 
 " ignores an annoying PEP8 rule
 let g:pymode_lint_ignore = "E265"
 let g:pymode_lint_ignore = "E231"
+let g:pymode_lint_ignore = "C901"
 
 " autoremove unused whitespaces
 let g:pymode_utils_whitespaces = 1
@@ -83,11 +81,9 @@ let g:pymode_utils_whitespaces = 1
 " set map leader
 let mapleader = ","
 
+" supercollider stuff
 let g:sclangPipeApp = "~/.vim/bundle/scvim/bin/start_pipe"
 let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
-
-" arduino stuff
-let g:vim_arduino_auto_open_serial = 1
 
 " zen mode mapping
 nnoremap <leader>z :Goyo<CR>
