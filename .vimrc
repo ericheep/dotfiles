@@ -25,7 +25,7 @@ filetype plugin indent on
 
 syntax on
 set background=dark
-colorscheme gruvbox 
+colorscheme 0x7869_dark
 
 " turn off numbering
 set nu!
