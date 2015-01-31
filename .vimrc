@@ -28,7 +28,7 @@ set background=dark
 colorscheme 0x7A69_dark
 
 " turn off numbering
-set nu!
+set relativenumber
 
 " show commands as they are typed
 set showcmd
