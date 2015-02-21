@@ -16,7 +16,6 @@ Plugin 'klen/python-mode'
 Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
-" Plugin 'sudar/vim-arduino-syntax'
 Plugin 'tpope/vim-rails'
 Plugin 'wilsaj/chuck.vim'
 
