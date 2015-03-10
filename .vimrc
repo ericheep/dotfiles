@@ -26,8 +26,9 @@ syntax on
 set background=dark
 colorscheme 0x7A69_dark
 
-" turn off numbering
+" turn off numbering and current number (in mvim)
 set relativenumber
+set nu
 
 " show commands as they are typed
 set showcmd
