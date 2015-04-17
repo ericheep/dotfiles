@@ -17,7 +17,7 @@ Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
 Plugin 'tpope/vim-rails'
-Plugin 'wilsaj/chuck.vim'
+Plugin 'ericheep/chuck.vim'
 
 call vundle#end()
 filetype plugin indent on
