@@ -13,7 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
-Plugin 'sbl/scvim'
+" Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
 Plugin 'tpope/vim-rails'
@@ -64,6 +64,10 @@ set gdefault
 set incsearch
 set showmatch
 set hlsearch
+
+" forcing myself off the escape key
+inoremap jk <esc>
+inoremap <esc> <nop>
 
 " turn off default pymode options
 let g:pymode_options = 0
