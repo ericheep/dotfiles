@@ -26,7 +26,7 @@ syntax on
 set background=dark
 colorscheme codeschool
 
-" turn off numbering and current number (in mvim)
+" turn off numbering and current number
 set relativenumber
 set nu
 
@@ -75,10 +75,12 @@ let g:pymode_options = 0
 " turn off auto complete
 let g:pymode_rope_completion = 0 
 
-" ignores an annoying PEP8 rule
+" ignores annoying PEP8 rules
 let g:pymode_lint_ignore = "E265"
 let g:pymode_lint_ignore = "E231"
 let g:pymode_lint_ignore = "C901"
+let g:pymode_lint_ignore = "E255"
+let g:pymode_lint_ignore = "E501"
 
 " autoremove unused whitespaces
 let g:pymode_utils_whitespaces = 1
