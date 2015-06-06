@@ -73,7 +73,9 @@ inoremap <esc> <nop>
 let g:pymode_options = 0
 
 " turn off auto complete
+let g:pymode_rope = 0
 let g:pymode_rope_completion = 0 
+let g:pymode_rope_lookup_project = 0
 
 " ignores annoying PEP8 rules
 let g:pymode_lint_ignore = "E265"
