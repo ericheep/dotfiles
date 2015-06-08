@@ -79,6 +79,7 @@ let g:pymode_rope_lookup_project = 0
 
 " ignores annoying PEP8 rules
 let g:pymode_lint_ignore = "E265"
+let g:pymode_lint_ignore = "E228"
 let g:pymode_lint_ignore = "E231"
 let g:pymode_lint_ignore = "C901"
 let g:pymode_lint_ignore = "E255"
