@@ -13,6 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
+Plugin 'luxflux/vim-git-inline-diff'
 " Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
@@ -69,12 +70,25 @@ set hlsearch
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+" removes ununsed whitespaces from all files
+autocmd BufWritePre * :%s/\s\+$//e
+
+" vim-git inline config
+" symbol for lines which have been added, default: +
+let g:git_diff_added_symbol='⇒'
+
+" symbol for lines which have been removed, default: -
+let g:git_diff_removed_symbol='⇐'
+
+" symbol for lines which have been changed, default: <>
+let g:git_diff_changed_symbol='⇔'
+
 " turn off default pymode options
 let g:pymode_options = 0
 
 " turn off auto complete
 let g:pymode_rope = 0
-let g:pymode_rope_completion = 0 
+let g:pymode_rope_completion = 0
 let g:pymode_rope_lookup_project = 0
 
 " ignores annoying PEP8 rules
