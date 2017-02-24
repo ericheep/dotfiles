@@ -130,6 +130,14 @@ nnoremap <leader>z :Goyo<CR>
 " limelight mode mapping
 nnoremap <leader>l :Limelight<CR>
 
+" ChucK vim stuff
+function! ChuckRunBuffer()
+    silent !clear
+    execute "!chuck" . " " . bufname("%")
+endfunction
+
+nnoremap <buffer> <leader>r :call ChuckRunBuffer()<cr>
+
 " processing mapping
 autocmd FileType processing nnoremap <leader>r :make<CR>
 
