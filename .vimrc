@@ -8,13 +8,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let vundle manage itself
+Plugin 'junegunn/limelight.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'jplaut/vim-arduino-ino'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
 Plugin 'luxflux/vim-git-inline-diff'
-" Plugin 'sbl/scvim'
+Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
 Plugin 'tpope/vim-rails'
@@ -25,7 +26,8 @@ filetype plugin indent on
 
 syntax on
 set background=dark
-colorscheme codeschool
+" colorscheme codeschool
+colorscheme vilight
 
 " turn off numbering and current number
 set relativenumber
@@ -116,5 +118,5 @@ nnoremap <leader>z :Goyo<CR>
 autocmd FileType processing nnoremap <leader>r :make<CR>
 
 " supercollider mapping
-autocmd FileType supercollider nnoremap <leader>b :SClangStart<CR>
-autocmd FileType supercollider nnoremap <leader>k :SClangKill<CR>
+" autocmd FileType supercollider nnoremap <leader>b :SClangStart<CR>
+" autocmd FileType supercollider nnoremap <leader>k :SClangKill<CR>
