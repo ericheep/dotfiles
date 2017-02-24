@@ -4,28 +4,52 @@ set encoding=utf-8
 
 " vundle up
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+
+if has ("win32")
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$HOME/vimfiles/bundle/')
+else
+    if has("unix")
+        set rtp+=~/.vim/bundle/Vundle.vim
+        call vundle#begin()
+    endif
+endif
+
 
 " Let vundle manage itself
+Plugin 'alessandroyorba/monrovia'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'jplaut/vim-arduino-ino'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
-Plugin 'luxflux/vim-git-inline-diff'
-" Plugin 'sbl/scvim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
 Plugin 'tpope/vim-rails'
-Plugin 'ericheep/chuck.vim'
+Plugin 'wilsaj/chuck.vim'
+Plugin 'Shougo/vimproc.vim'
 
 call vundle#end()
 filetype plugin indent on
 
+" font stuff
 syntax on
-set background=dark
-colorscheme codeschool
+" set background=dark
+
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h9:cDEFAULT
+    set lines=999 columns=999
+    colorscheme monrovia
+  endif
+else
+    " cmdprompt or powershell
+    colorscheme monrovia
+endif
+
 
 " turn off numbering and current number
 set relativenumber
@@ -73,17 +97,6 @@ inoremap <esc> <nop>
 " removes ununsed whitespaces from all files
 autocmd BufWritePre * :%s/\s\+$//e
 
-" vim-git inline config
-" symbol for lines which have been added, default: +
-let g:git_diff_added_symbol='⇒'
-
-" symbol for lines which have been removed, default: -
-let g:git_diff_removed_symbol='⇐'
-
-" symbol for lines which have been changed, default: <>
-let g:git_diff_changed_symbol='⇔'
-
-" turn off default pymode options
 let g:pymode_options = 0
 
 " turn off auto complete
