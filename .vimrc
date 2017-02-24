@@ -1,30 +1,26 @@
-" Let vim behave like vim
+" let vim be vim
 set nocompatible
 set encoding=utf-8
-
-" vundle up
 filetype off
 
+" vundle up
 if has ("win32")
     set rtp+=$HOME/vimfiles/bundle/Vundle.vim
     call vundle#begin('$HOME/vimfiles/bundle/')
-else
-    if has("unix")
-        set rtp+=~/.vim/bundle/Vundle.vim
-        call vundle#begin()
-    endif
+elseif has("unix")
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 endif
 
-
-" Let vundle manage itself
+" let vundle manage itself
 Plugin 'alessandroyorba/monrovia'
+Plugin 'junegunn/limelight.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
-Plugin 'tpope/vim-rails'
 Plugin 'wilsaj/chuck.vim'
 Plugin 'Shougo/vimproc.vim'
 
@@ -33,23 +29,29 @@ filetype plugin indent on
 
 " font stuff
 syntax on
-" set background=dark
+set background=dark
 
+" for any gvim
 if has("gui_running")
+  colorscheme monrovia
+  set lines=999 columns=999
+
+  " a different font per os
   if has("gui_gtk2")
     set guifont=Inconsolata\ 12
   elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
+    set guifont=Menlo\ Regular:h11
   elseif has("gui_win32")
     set guifont=Consolas:h9:cDEFAULT
-    set lines=999 columns=999
-    colorscheme monrovia
   endif
 else
-    " cmdprompt or powershell
-    colorscheme monrovia
+    " terminal, or cmdprompt/powershell
+    if has("unix")
+        colorscheme gruvbox
+    elseif("win32")
+        colorscheme gruvbox
+    endif
 endif
-
 
 " turn off numbering and current number
 set relativenumber
@@ -90,7 +92,7 @@ set incsearch
 set showmatch
 set hlsearch
 
-" forcing myself off the escape key
+" no escape key
 inoremap jk <esc>
 inoremap <esc> <nop>
 
@@ -124,6 +126,9 @@ let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
 
 " zen mode mapping
 nnoremap <leader>z :Goyo<CR>
+
+" limelight mode mapping
+nnoremap <leader>l :Limelight<CR>
 
 " processing mapping
 autocmd FileType processing nnoremap <leader>r :make<CR>
