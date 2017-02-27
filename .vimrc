@@ -69,9 +69,11 @@ set scrolloff=3
 " no menu or scrollbars
 set guioptions=
 
-" turn off the beep
-set visualbell
-set t_vb=
+" turn off bells
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " we'll do it live!
 set noswapfile
