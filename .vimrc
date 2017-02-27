@@ -66,11 +66,12 @@ set showcmd
 " keep of mininum of 3 lines of context around current line
 set scrolloff=3
 
-"no menu or scrollbars
+" no menu or scrollbars
 set guioptions=
 
 " turn off the beep
 set visualbell
+set t_vb=
 
 " we'll do it live!
 set noswapfile
@@ -129,6 +130,9 @@ let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
 
 " zen mode mapping
 nnoremap <leader>z :Goyo<CR>
+
+" fullscreen mode mapping
+nnoremap <leader>f :Fullscreen<CR>
 
 " limelight mode mapping
 nnoremap <leader>l :Limelight<CR>
