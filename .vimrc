@@ -14,6 +14,7 @@ endif
 
 " let vundle manage itself
 Plugin 'alessandroyorba/monrovia'
+Plugin 'alessandroyorba/sidonia'
 Plugin 'junegunn/limelight.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/Vundle.vim'
@@ -23,6 +24,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'sophacles/vim-processing'
 Plugin 'wilsaj/chuck.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-shell'
 
 call vundle#end()
 filetype plugin indent on
