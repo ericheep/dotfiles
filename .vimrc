@@ -98,9 +98,8 @@ set incsearch
 set showmatch
 set hlsearch
 
-" no escape key
+" jk also works as the escape key
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 " removes ununsed whitespaces from all files
 autocmd BufWritePre * :%s/\s\+$//e
