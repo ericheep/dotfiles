@@ -26,6 +26,7 @@ Plugin 'wilsaj/chuck.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-shell'
+Plugin 'supercollider/scvim'
 
 call vundle#end()
 filetype plugin indent on
@@ -36,8 +37,7 @@ set background=dark
 
 " for any gvim
 if has("gui_running")
-  colorscheme monrovia
-  set lines=999 columns=999
+  colorscheme sierra
 
   " a different font per os
   if has("gui_gtk2")
@@ -68,6 +68,8 @@ set scrolloff=3
 
 " no menu or scrollbars
 set guioptions=
+
+set nolazyredraw
 
 " turn off bells
 set noerrorbells visualbell t_vb=
@@ -150,5 +152,4 @@ nnoremap <buffer> <leader>r :call ChuckRunBuffer()<cr>
 autocmd FileType processing nnoremap <leader>r :make<CR>
 
 " supercollider mapping
-" autocmd FileType supercollider nnoremap <leader>b :SClangStart<CR>
-" autocmd FileType supercollider nnoremap <leader>k :SClangKill<CR>
+let g:sclangTerm="tmux split-window -v -p 20"
