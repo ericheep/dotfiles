@@ -21,12 +21,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
-Plugin 'sophacles/vim-processing'
-Plugin 'wilsaj/chuck.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'sophacles/vim-processing'
+Plugin 'supercollider/scvim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-shell'
-Plugin 'supercollider/scvim'
+Plugin 'wilsaj/chuck.vim'
+Plugin 'worp/ale'
 
 call vundle#end()
 filetype plugin indent on
