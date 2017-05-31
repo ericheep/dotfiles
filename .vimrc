@@ -29,7 +29,6 @@ Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-shell'
 Plugin 'wilsaj/chuck.vim'
-Plugin 'worp/ale'
 
 call vundle#end()
 filetype plugin indent on
