@@ -22,8 +22,10 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'klen/python-mode'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'sonjapeterson/1989.vim'
 Plugin 'sophacles/vim-processing'
 Plugin 'supercollider/scvim'
+Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-shell'
 Plugin 'wilsaj/chuck.vim'
@@ -38,7 +40,7 @@ set background=dark
 
 " for any gvim
 if has("gui_running")
-  colorscheme sierra
+  colorscheme deep-space
 
   " a different font per os
   if has("gui_gtk2")
