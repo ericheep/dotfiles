@@ -13,22 +13,19 @@ elseif has("unix")
 endif
 
 " let vundle manage itself
-Plugin 'alessandroyorba/monrovia'
-Plugin 'alessandroyorba/sidonia'
-Plugin 'junegunn/limelight.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'juleswang/css.vim'
 Plugin 'klen/python-mode'
+Plugin 'johngrib/vim-game-code-break'
+Plugin 'juleswang/css.vim'
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'sonjapeterson/1989.vim'
 Plugin 'sophacles/vim-processing'
+Plugin 'sonjapeterson/1989.vim'
 Plugin 'supercollider/scvim'
-Plugin 'tyrannicaltoucan/vim-deep-space'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-shell'
 Plugin 'wilsaj/chuck.vim'
 
 call vundle#end()
@@ -41,23 +38,28 @@ set background=dark
 " for any gvim
 if has("gui_running")
   colorscheme deep-space
+  set guifont=Operator\ Light:h11
 
-  " a different font per os
+" a different font per os
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
+    set guifont=Operator\ 12
   elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h11
+    set guifont=Operator\ Regular:h11
   elseif has("gui_win32")
-    set guifont=Consolas:h9:cDEFAULT
+    set guifont=Operator:h9:cDEFAULT
   endif
 else
-    " terminal, or cmdprompt/powershell
+" terminal, or cmdprompt/powershell
     if has("unix")
-        colorscheme gruvbox
+        colorscheme sierra
     elseif("win32")
         colorscheme gruvbox
     endif
 endif
+
+
+" for faster scrolling
+set lazyredraw
 
 " turn off numbering and current number
 set relativenumber
@@ -156,3 +158,14 @@ autocmd FileType processing nnoremap <leader>r :make<CR>
 
 " supercollider mapping
 let g:sclangTerm="tmux split-window -v -p 20"
+
+" italics
+highlight Comment gui=italic
+highlight Comment cterm=italic
+
+if &term =~ '256color'
+    " disable Background Color Erase (BCE) so that color schemes
+    " render properly when inside 256-color tmux and GNU screen.
+    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+     set t_ut=
+ endif
