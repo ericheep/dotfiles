@@ -14,6 +14,8 @@ endif
 
 " let vundle manage itself
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Drogglbecher/vim-moonscape'
+Plugin 'iceisspetrel/Monrovia'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'klen/python-mode'
@@ -21,23 +23,25 @@ Plugin 'johngrib/vim-game-code-break'
 Plugin 'juleswang/css.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'kocakosm/hilal'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'sophacles/vim-processing'
 Plugin 'sonjapeterson/1989.vim'
 Plugin 'supercollider/scvim'
+Plugin 'tpozzi/Sidonia'
+Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'wilsaj/chuck.vim'
 
 call vundle#end()
 filetype plugin indent on
 
-" font stuff
 syntax on
 set background=dark
+colorscheme sierra
 
 " for any gvim
 if has("gui_running")
-  colorscheme deep-space
   set guifont=Operator\ Light:h11
 
 " a different font per os
@@ -48,18 +52,7 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Operator:h9:cDEFAULT
   endif
-else
-" terminal, or cmdprompt/powershell
-    if has("unix")
-        colorscheme sierra
-    elseif("win32")
-        colorscheme gruvbox
-    endif
 endif
-
-
-" for faster scrolling
-set lazyredraw
 
 " turn off numbering and current number
 set relativenumber
@@ -74,7 +67,7 @@ set scrolloff=3
 " no menu or scrollbars
 set guioptions=
 
-set nolazyredraw
+" set nolazyredraw
 
 " turn off bells
 set noerrorbells visualbell t_vb=
@@ -88,12 +81,21 @@ set noswapfile
 " backspace through everything
 set backspace=eol,indent,start
 
-" use 4-spaces for taba and autoindent
 set autoindent
-set tabstop=4
-set softtabstop=4
+
+" default spacing
 set shiftwidth=4
-set expandtab
+set softtabstop=4
+set tabstop=4
+
+" use 2-spaces for tabs and autoindent on js and html
+au FileType javascript setl sw=2 sts=2 et
+au FileType lua setl sw=2 sts=2 et
+au FileType html setl sw=2 sts=2 et
+
+" use 4-spaces for tabs and autoindent on js and html
+au FileType py setl sw=4 sts=4 et
+au FileType chuck setl sw=4 sts=4 et
 
 " allows case insensitive searching
 set ignorecase

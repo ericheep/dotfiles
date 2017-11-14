@@ -3,6 +3,8 @@ export CLICOLOR=1
 
 # terminal prompt
 export PS1="\W $ "
+export NVM_DIR="$HOME/.nvm"
+source "/usr/local/opt/nvm/nvm.sh"
 
 # reload!
 alias reload="source ~/.bashrc"
