@@ -13,32 +13,24 @@ elseif has("unix")
 endif
 
 " let vundle manage itself
+Plugin 'gmarik/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Drogglbecher/vim-moonscape'
-Plugin 'iceisspetrel/Monrovia'
+Plugin 'itchyny/lightline.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'klen/python-mode'
-Plugin 'johngrib/vim-game-code-break'
+Plugin 'jacoborus/tender.vim'
 Plugin 'juleswang/css.vim'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
-Plugin 'kocakosm/hilal'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'sophacles/vim-processing'
 Plugin 'sonjapeterson/1989.vim'
 Plugin 'supercollider/scvim'
-Plugin 'tpozzi/Sidonia'
-Plugin 'tyrannicaltoucan/vim-deep-space'
 Plugin 'wilsaj/chuck.vim'
 
 call vundle#end()
 filetype plugin indent on
 
 syntax on
-set background=dark
-colorscheme sierra
+colorscheme moonscape
 
 " for any gvim
 if has("gui_running")
@@ -48,7 +40,7 @@ if has("gui_running")
   if has("gui_gtk2")
     set guifont=Operator\ 12
   elseif has("gui_macvim")
-    set guifont=Operator\ Regular:h11
+    set guifont=Operator\ Light:h11
   elseif has("gui_win32")
     set guifont=Operator:h9:cDEFAULT
   endif
@@ -81,8 +73,6 @@ set noswapfile
 " backspace through everything
 set backspace=eol,indent,start
 
-set autoindent
-
 " default spacing
 set shiftwidth=4
 set softtabstop=4
@@ -92,10 +82,13 @@ set tabstop=4
 au FileType javascript setl sw=2 sts=2 et
 au FileType lua setl sw=2 sts=2 et
 au FileType html setl sw=2 sts=2 et
+au FileType ruby setl sw=2 sts=2 et
 
-" use 4-spaces for tabs and autoindent on js and html
+" use 4-spaces for tabs and autoindent on python and chuck
 au FileType py setl sw=4 sts=4 et
 au FileType chuck setl sw=4 sts=4 et
+
+set autoindent
 
 " allows case insensitive searching
 set ignorecase
@@ -110,26 +103,8 @@ set hlsearch
 " jk also works as the escape key
 inoremap jk <esc>
 
-" removes ununsed whitespaces from all files
-autocmd BufWritePre * :%s/\s\+$//e
-
-let g:pymode_options = 0
-
-" turn off auto complete
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_lookup_project = 0
-
-" ignores annoying PEP8 rules
-let g:pymode_lint_ignore = "E265"
-let g:pymode_lint_ignore = "E228"
-let g:pymode_lint_ignore = "E231"
-let g:pymode_lint_ignore = "C901"
-let g:pymode_lint_ignore = "E255"
-let g:pymode_lint_ignore = "E501"
-
-" autoremove unused whitespaces
-let g:pymode_utils_whitespaces = 1
+" remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " set map leader
 let mapleader = ","
@@ -137,37 +112,49 @@ let mapleader = ","
 " supercollider stuff
 let g:sclangPipeApp = "~/.vim/bundle/scvim/bin/start_pipe"
 let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
+"
+" supercollider mapping
+let g:sclangTerm="tmux split-window -v -p 20"
+
+" lightline config
+set laststatus=2
+set noshowmode
+
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
 
 " zen mode mapping
 nnoremap <leader>z :Goyo<CR>
 
-" fullscreen mode mapping
-nnoremap <leader>f :Fullscreen<CR>
-
 " limelight mode mapping
 nnoremap <leader>l :Limelight<CR>
 
-" ChucK vim stuff
-function! ChuckRunBuffer()
-    silent !clear
-    execute "!chuck" . " " . bufname("%")
-endfunction
+" color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'black'
+let g:limelight_conceal_ctermfg = 240
 
-nnoremap <buffer> <leader>r :call ChuckRunBuffer()<cr>
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
 
-" processing mapping
-autocmd FileType processing nnoremap <leader>r :make<CR>
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+let g:limelight_priority = -1
 
-" supercollider mapping
-let g:sclangTerm="tmux split-window -v -p 20"
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " italics
 highlight Comment gui=italic
 highlight Comment cterm=italic
 
-if &term =~ '256color'
+ if &term =~ '256color'
     " disable Background Color Erase (BCE) so that color schemes
     " render properly when inside 256-color tmux and GNU screen.
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-     set t_ut=
+      set t_ut=
  endif
