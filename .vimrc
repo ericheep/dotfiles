@@ -3,48 +3,29 @@ set nocompatible
 set encoding=utf-8
 filetype off
 
-" vundle up
-if has ("win32")
-    set rtp+=$HOME/vimfiles/bundle/Vundle.vim
-    call vundle#begin('$HOME/vimfiles/bundle/')
-elseif has("unix")
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-endif
+" plug
+call plug#begin('~/.vim/plugged')
 
-" let vundle manage itself
-Plugin 'gmarik/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Drogglbecher/vim-moonscape'
-Plugin 'itchyny/lightline.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'jacoborus/tender.vim'
-Plugin 'juleswang/css.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/goyo.vim'
-Plugin 'sonjapeterson/1989.vim'
-Plugin 'supercollider/scvim'
-Plugin 'wilsaj/chuck.vim'
+Plug 'gmarik/Vundle.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'Drogglbecher/vim-moonscape'
+Plug 'itchyny/lightline.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'jacoborus/tender.vim'
+Plug 'juleswang/css.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'sonjapeterson/1989.vim'
+Plug 'supercollider/scvim'
+Plug 'wilsaj/chuck.vim'
 
-call vundle#end()
-filetype plugin indent on
+" initialize
+call plug#end()
 
+" colors
 syntax on
 colorscheme moonscape
-
-" for any gvim
-if has("gui_running")
-  set guifont=Operator\ Light:h11
-
-" a different font per os
-  if has("gui_gtk2")
-    set guifont=Operator\ 12
-  elseif has("gui_macvim")
-    set guifont=Operator\ Light:h11
-  elseif has("gui_win32")
-    set guifont=Operator:h9:cDEFAULT
-  endif
-endif
+set guifont=Operator\ Light:h11
 
 " turn off numbering and current number
 set relativenumber
@@ -72,6 +53,9 @@ set noswapfile
 
 " backspace through everything
 set backspace=eol,indent,start
+
+" indent stuff
+filetype plugin indent on
 
 " default spacing
 set shiftwidth=4
@@ -102,9 +86,6 @@ set hlsearch
 
 " jk also works as the escape key
 inoremap jk <esc>
-
-" remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " set map leader
 let mapleader = ","
@@ -157,4 +138,16 @@ highlight Comment cterm=italic
     " render properly when inside 256-color tmux and GNU screen.
     " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
       set t_ut=
- endif
+  endif
+
+  " danny's super fancy remove whitespace on save function
+  function! RemoveTrailingWhitespace()
+	  let l:winview = winsaveview()
+	  :%s/\s\+$//e
+	  call winrestview(l:winview)
+  endfunction
+
+  augroup whitespace
+	  autocmd!
+	  autocmd BufWritePre * :call RemoveTrailingWhitespace()
+  augroup END
