@@ -6,7 +6,6 @@ filetype off
 " plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Drogglbecher/vim-moonscape'
 Plug 'itchyny/lightline.vim'
@@ -24,8 +23,23 @@ call plug#end()
 
 " colors
 syntax on
-colorscheme moonscape
+colorscheme 1989
+
+" font
 set guifont=Operator\ Light:h11
+
+" italics
+highlight Comment gui=italic
+highlight Comment cterm=italic
+
+" no menu or scrollbars
+set guioptions=
+
+" turn off bells
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+    autocmd GUIEnter * set visualbell t_vb=
+endif
 
 " turn off numbering and current number
 set relativenumber
@@ -37,17 +51,6 @@ set showcmd
 " keep of mininum of 3 lines of context around current line
 set scrolloff=3
 
-" no menu or scrollbars
-set guioptions=
-
-" set nolazyredraw
-
-" turn off bells
-set noerrorbells visualbell t_vb=
-if has('autocmd')
-    autocmd GUIEnter * set visualbell t_vb=
-endif
-
 " we'll do it live!
 set noswapfile
 
@@ -58,21 +61,21 @@ set backspace=eol,indent,start
 filetype plugin indent on
 
 " default spacing
+set autoindent
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-" use 2-spaces for tabs and autoindent on js and html
+" use 2-spaces for tabs and autoindent on js, html, lua, ruby, css
 au FileType javascript setl sw=2 sts=2 et
 au FileType lua setl sw=2 sts=2 et
 au FileType html setl sw=2 sts=2 et
 au FileType ruby setl sw=2 sts=2 et
+au FileType css setl sw=2 sts=2 et
 
 " use 4-spaces for tabs and autoindent on python and chuck
 au FileType py setl sw=4 sts=4 et
 au FileType chuck setl sw=4 sts=4 et
-
-set autoindent
 
 " allows case insensitive searching
 set ignorecase
@@ -102,8 +105,8 @@ set laststatus=2
 set noshowmode
 
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
-      \ }
+	\ 'colorscheme': 'seoul256',
+	\ }
 
 " zen mode mapping
 nnoremap <leader>z :Goyo<CR>
@@ -120,8 +123,8 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 
 " Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
+" When there's no empty line between the paragraphs
+" and each paragraph starts with indentation
 let g:limelight_bop = '^\s'
 let g:limelight_eop = '\ze\n^\s'
 let g:limelight_priority = -1
@@ -129,25 +132,21 @@ let g:limelight_priority = -1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-" italics
-highlight Comment gui=italic
-highlight Comment cterm=italic
+if &term =~ '256color'
+	" disable Background Color Erase (BCE) so that color schemes
+	" render properly when inside 256-color tmux and GNU screen.
+	" see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+	set t_ut=
+endif
 
- if &term =~ '256color'
-    " disable Background Color Erase (BCE) so that color schemes
-    " render properly when inside 256-color tmux and GNU screen.
-    " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
-      set t_ut=
-  endif
+" danny's super fancy remove whitespace on save function
+function! RemoveTrailingWhitespace()
+	let l:winview = winsaveview()
+	:%s/\s\+$//e
+	call winrestview(l:winview)
+endfunction
 
-  " danny's super fancy remove whitespace on save function
-  function! RemoveTrailingWhitespace()
-	  let l:winview = winsaveview()
-	  :%s/\s\+$//e
-	  call winrestview(l:winview)
-  endfunction
-
-  augroup whitespace
-	  autocmd!
-	  autocmd BufWritePre * :call RemoveTrailingWhitespace()
-  augroup END
+augroup whitespace
+	autocmd!
+	autocmd BufWritePre * :call RemoveTrailingWhitespace()
+augroup END
