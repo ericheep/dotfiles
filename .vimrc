@@ -6,6 +6,7 @@ filetype off
 " plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
