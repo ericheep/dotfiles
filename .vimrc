@@ -7,6 +7,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 Plug 'kien/ctrlp.vim'
+Plug 'mxw/vim-jsx'
 Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
@@ -71,6 +72,7 @@ set tabstop=4
 
 " use 2-spaces for tabs and autoindent on js, html, lua, ruby, css
 au FileType javascript setl sw=2 sts=2 et
+au FileType json setl sw=2 sts=2 et
 au FileType lua setl sw=2 sts=2 et
 au FileType html setl sw=2 sts=2 et
 au FileType ruby setl sw=2 sts=2 et
