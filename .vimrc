@@ -98,6 +98,9 @@ inoremap jk <esc>
 " set map leader
 let mapleader = ","
 
+" better searches for all
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
+
 " supercollider stuff
 let g:sclangPipeApp = "~/.vim/bundle/scvim/bin/start_pipe"
 let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
