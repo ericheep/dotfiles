@@ -23,3 +23,6 @@ export NVM_DIR="$HOME/.nvm"
 
  # this loads nvm bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l logfile start"
+

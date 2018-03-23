@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'kien/ctrlp.vim'
 Plug 'mxw/vim-jsx'
-Plug 'tpope/vim-vinegar'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Drogglbecher/vim-moonscape'
@@ -20,6 +19,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'sonjapeterson/1989.vim'
 Plug 'supercollider/scvim'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-commentary'
 Plug 'wilsaj/chuck.vim'
 
 " initialize
