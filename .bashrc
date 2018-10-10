@@ -8,6 +8,8 @@ export PS1="\W $ "
 alias reload="source ~/.bashrc"
 alias website="python3 -m http.server 8000"
 alias miscellany="python3 ~/git/miscellany/manage.py runserver"
+alias eqm="source ~/venvs/eqm/bin/activate"
+alias heep="source ~/venvs/heep/bin/activate"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

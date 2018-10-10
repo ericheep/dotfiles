@@ -161,3 +161,5 @@ augroup whitespace
 	autocmd!
 	autocmd BufWritePre * :call RemoveTrailingWhitespace()
 augroup END
+
+autocmd BufRead,BufNewFile *.qplug set filetype=lua
