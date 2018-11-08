@@ -17,6 +17,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
 Plug 'sonjapeterson/1989.vim'
 Plug 'supercollider/scvim'
 Plug 'tpope/vim-commentary'
@@ -80,6 +81,7 @@ au FileType lua setl sw=2 sts=2 et
 au FileType html setl sw=2 sts=2 et
 au FileType ruby setl sw=2 sts=2 et
 au FileType css setl sw=2 sts=2 et
+au FileType vue setl sw=2 sts=2 et
 
 " use 4-spaces for tabs and autoindent on python and chuck
 au FileType py setl sw=4 sts=4 et
@@ -162,4 +164,4 @@ augroup whitespace
 	autocmd BufWritePre * :call RemoveTrailingWhitespace()
 augroup END
 
-autocmd BufRead,BufNewFile *.qplug set filetype=lua
+autocmd BufRead,BufNewFile * .qplug set filetype=lua
