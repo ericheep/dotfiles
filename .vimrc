@@ -31,7 +31,9 @@ call plug#end()
 
 " colors
 syntax on
-colorscheme 1989
+colorscheme gruvbox
+set background=dark
+highlight Normal ctermfg=grey ctermbg=black
 
 " font
 set guifont=Operator\ Light:h11
@@ -164,4 +166,4 @@ augroup whitespace
 	autocmd BufWritePre * :call RemoveTrailingWhitespace()
 augroup END
 
-autocmd BufRead,BufNewFile * .qplug set filetype=lua
+autocmd BufRead,BufNewFile *.qplug set filetype=lua
