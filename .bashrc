@@ -11,12 +11,6 @@ alias miscellany="python3 ~/git/miscellany/manage.py runserver"
 alias eqm="source ~/venvs/eqm/bin/activate"
 alias heep="source ~/venvs/heep/bin/activate"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # set nvmdir
 export NVM_DIR="$HOME/.nvm"
 
@@ -27,4 +21,3 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l logfile start"
-
