@@ -37,7 +37,7 @@ highlight Normal ctermfg=White ctermbg=NONE
 highlight NonText ctermfg=White ctermbg=NONE
 
 " font
-set guifont=Operator\ Light:h11
+" set guifont=Operator \ Light:h11
 
 " italics
 highlight Comment gui=italic
