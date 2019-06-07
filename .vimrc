@@ -6,22 +6,17 @@ filetype off
 " plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'Drogglbecher/vim-moonscape'
-Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'flrnprz/candid.vim'
 Plug 'inside/vim-search-pulse'
 Plug 'jacoborus/tender.vim'
 Plug 'juleswang/css.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'KKPMW/oldbook-vim'
+Plug 'leafOfTree/vim-vue-plugin'
 Plug 'mxw/vim-jsx'
-Plug 'posva/vim-vue'
 Plug 'sonjapeterson/1989.vim'
-Plug 'supercollider/scvim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -33,13 +28,13 @@ call plug#end()
 
 " colors
 syntax on
-colorscheme oldbook
+colorscheme 1989
 set background=dark
 
-hi Search ctermbg=Grey
-hi Search ctermfg=Black
-highlight Normal ctermfg=grey ctermbg=black
-highlight NonText ctermfg=grey ctermbg=black
+" use hyper background color
+highlight LineNr ctermfg=NONE ctermbg=NONE
+highlight Normal ctermfg=White ctermbg=NONE
+highlight NonText ctermfg=White ctermbg=NONE
 
 " font
 set guifont=Operator\ Light:h11
@@ -78,9 +73,9 @@ filetype plugin indent on
 
 " default spacing
 set autoindent
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
 " use 2-spaces for tabs and autoindent on js, html, lua, ruby, css
 au FileType javascript setl sw=2 sts=2 et
@@ -90,10 +85,9 @@ au FileType html setl sw=2 sts=2 et
 au FileType ruby setl sw=2 sts=2 et
 au FileType css setl sw=2 sts=2 et
 au FileType vue setl sw=2 sts=2 et
-
-" use 4-spaces for tabs and autoindent on python and chuck
-au FileType py setl sw=4 sts=4 et
-au FileType chuck setl sw=4 sts=4 et
+au FileType ino setl sw=2 sts=2 et
+au FileType py setl sw=2 sts=2 et
+au FileType chuck setl sw=2 sts=2 et
 
 " allows case insensitive searching
 set ignorecase
@@ -114,23 +108,8 @@ let mapleader = ","
 " better searches for all
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store'
 
-" supercollider stuff
-let g:sclangPipeApp = "~/.vim/bundle/scvim/bin/start_pipe"
-let g:sclangDispatcher = "~/.vim/bundle/scvim/bin/sc_dispatcher"
-"
-" supercollider mapping
-let g:sclangTerm="tmux split-window -v -p 20"
-
-" lightline config
-set laststatus=2
-set noshowmode
-
-let g:lightline = {
-	\ 'colorscheme': 'seoul256',
-	\ }
-
 " shorten pulse duration
-let g:vim_search_pulse_duration = 500
+let g:vim_search_pulse_duration = 50
 let g:vim_search_pulse_color_list = [244, 245, 246, 247, 248]
 
 " zen mode mapping
